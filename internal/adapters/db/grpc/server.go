@@ -51,7 +51,7 @@ func getTlsCredentials() (credentials.TransportCredentials, error) {
 		&tls.Config{
 			ClientAuth:   tls.RequireAnyClientCert,
 			Certificates: []tls.Certificate{serverCert},
-			ClientCAs:    certPool,
+			RootCAs:      certPool,
 		}), nil
 }
 
@@ -68,7 +68,9 @@ func (a *Adapter) Run() {
 	}
 
 	var opts []grpc.ServerOption
-	opts = append(opts, grpc.Creds(tlsCredentials), grpc.StatsHandler(otelgrpc.NewServerHandler()))
+	opts = append(opts,
+		grpc.Creds(tlsCredentials), //
+		grpc.StatsHandler(otelgrpc.NewServerHandler()))
 	grpcServer := grpc.NewServer(opts...)
 	a.server = grpcServer
 	payment.RegisterPaymentServer(grpcServer, a)
