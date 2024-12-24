@@ -62,11 +62,11 @@ func (a *Adapter) Run() {
 	if err != nil {
 		log.Fatalf("failed to listen on port %d, error: %v", a.port, err)
 	}
-	_, tlsCredentialsErr := getTlsCredentials()
+	// _, tlsCredentialsErr := getTlsCredentials()
 	// tlsCredentials, tlsCredentialsErr := getTlsCredentials()
-	if tlsCredentialsErr != nil {
-		log.Fatalf("failed to get tls credential, error: %v", tlsCredentialsErr)
-	}
+	// if tlsCredentialsErr != nil {
+	// 	log.Fatalf("failed to get tls credential, error: %v", tlsCredentialsErr)
+	// }
 
 	var opts []grpc.ServerOption
 	opts = append(opts,

@@ -3,7 +3,7 @@ module github.com/chyiyaqing/gmicro-payment
 go 1.22.7
 
 require (
-	github.com/chyiyaqing/gmicro-proto/golang/payment v0.0.6
+	github.com/chyiyaqing/gmicro-proto/golang/payment v0.0.7
 	github.com/sirupsen/logrus v1.9.3
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.58.0
 	go.opentelemetry.io/otel v1.33.0
